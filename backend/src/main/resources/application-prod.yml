@@ -1,0 +1,93 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  tomcat:
+    # Tomcat线程池配置
+    max-threads: 200
+    min-spare-threads: 20
+    max-connections: 8192
+    accept-count: 1000
+    connection-timeout: 20000
+    keep-alive-timeout: 60000
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 120MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/share_db?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_unicode_ci&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useServerPrepStmts=true&cachePrepStmts=true&prepStmtCacheSize=256&prepStmtCacheSqlLimit=2048&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 50
+      auto-commit: true
+      idle-timeout: 300000
+      pool-name: ShareHikariPool
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      validation-timeout: 5000
+      leak-detection-threshold: 60000
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456
+      database: 1
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=10000,expireAfterWrite=300s
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-executor-type: reuse
+    cache-enabled: true
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.share.entity
+
+jwt:
+  secret: life_sharing_site_jwt_secret_key_2024
+  expiration: 3600
+
+# 应用业务开关
+app:
+  rate-limit:
+    enabled: true
+    limit: 1000
+    window: 60
+  cache:
+    enabled: true
+    expire-time: 300
+
+# 日志配置
+logging:
+  level:
+    com.share: info
+    org.springframework: warn
+    com.baomidou.mybatisplus: warn
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# 每日AI快讯配置
+ai-brief:
+  enabled: true
+  cron: "0 0 9 * * ?"
+  zone: Asia/Shanghai
+  python-path: python
+  script-path: scripts/ai_brief/fetch_ai_hotspots.py
+  limit: 8
+  timeout-seconds: 45

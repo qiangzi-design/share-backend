@@ -1,0 +1,39 @@
+- [x] Checkpoint 1: 项目能够正常启动，无编译错误
+- [x] Checkpoint 2: 用户注册功能正常，返回正确的用户信息和token
+- [x] Checkpoint 3: 用户登录功能正常，验证密码并返回token
+- [x] Checkpoint 4: 未登录用户无法访问需要认证的接口
+- [ ] Checkpoint 5: 用户个人资料更新功能正常工作
+- [ ] Checkpoint 6: 头像上传功能正常工作
+- [x] Checkpoint 7: 内容发布功能正常，支持文字和图片上传
+- [x] Checkpoint 8: 内容字数限制验证正常工作
+- [x] Checkpoint 9: 图片上传大小限制验证正常工作
+- [ ] Checkpoint 10: 首页信息流正确加载最新内容
+- [ ] Checkpoint 11: 内容搜索功能能够返回相关内容
+- [x] Checkpoint 12: 内容点赞和取消点赞功能正常工作
+- [x] Checkpoint 13: 评论发布功能正常，正确保存评论数据
+- [x] Checkpoint 14: 嵌套评论正确关联父评论
+- [x] Checkpoint 15: 评论点赞功能正常工作
+- [ ] Checkpoint 16: 内容编辑功能正常，正确更新内容
+- [ ] Checkpoint 17: 内容删除功能正常，正确删除内容
+- [ ] Checkpoint 18: 只有内容作者可以编辑和删除内容
+- [ ] Checkpoint 19: 评论和点赞触发通知生成
+- [ ] Checkpoint 20: 通知状态更新功能正常工作
+- [ ] Checkpoint 21: 内容收藏和取消收藏功能正常工作
+- [ ] Checkpoint 22: 收藏列表正确显示用户收藏的内容
+- [ ] Checkpoint 23: 在不同设备上页面布局正常显示（响应式设计）
+- [ ] Checkpoint 24: 页面加载时间不超过2秒
+- [ ] Checkpoint 25: 敏感词过滤功能正常工作
+- [ ] Checkpoint 26: XSS攻击防护有效
+- [x] Checkpoint 27: 所有测试用例通过
+- [x] Checkpoint 28: 系统支持1000并发用户
+- [x] Checkpoint 29: 数据库查询响应时间小于100ms
+- [x] Checkpoint 30: 部署脚本能够成功部署应用
+- [x] Checkpoint 31: 数据备份和恢复功能正常
+- [x] Checkpoint 32: 用户界面设计美观，交互流畅
+- [x] Checkpoint 33: 项目结构清晰，遵循最佳实践
+- [x] Checkpoint 34: 部署文档清晰完整
+- [x] Checkpoint 35: 内容审核流程清晰有效
+- [x] Checkpoint 36: Flyway数据库迁移成功
+- [x] Checkpoint 37: 所有数据库表正确创建
+- [x] Checkpoint 38: 初始数据正确插入
+

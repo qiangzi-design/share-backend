@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 用户数据访问映射文件 -->
+<mapper namespace="com.share.mapper.UserMapper">
+    
+    <!-- 根据用户名查询用户 -->
+    <select id="findByUsername" resultType="com.share.entity.User">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
+    <!-- 根据邮箱查询用户 -->
+    <select id="findByEmail" resultType="com.share.entity.User">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+</mapper>

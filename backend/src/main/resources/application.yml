@@ -1,0 +1,54 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 120MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/share_db?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_unicode_ci&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useServerPrepStmts=true&cachePrepStmts=true&prepStmtCacheSize=256&prepStmtCacheSqlLimit=2048&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 123456
+      database: 1
+#  flyway:
+#    enabled: true
+#    baseline-on-migrate: true
+#    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.share.entity
+
+jwt:
+  secret: bGlmZV9zaGFyaW5nX3NpdGVfand0X3NlY3JldF9rZXlfMjAyNF9zZWN1cmVfc3Ryb25nX2tleV9mb3JfaHNhbDUxMl9hbGdvcml0aG1fcmVxdWlyZW1lbnQ=
+  expiration: 3600
+
+# 每日AI快讯配置：由Java定时触发Python脚本抓取热点。
+ai-brief:
+  enabled: true
+  cron: "0 0 9 * * ?"
+  zone: Asia/Shanghai
+  python-path: python
+  script-path: scripts/ai_brief/fetch_ai_hotspots.py
+  limit: 8
+  timeout-seconds: 45
